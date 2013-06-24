@@ -1,3 +1,9 @@
+# Slides for SSRoR_13
+
+All the slides of the Summer School of Ruby on Rails held in Maputo (Mozambique) from mid-July to mid-August 2013.
+
+Below the original Readme of reveal.js
+
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.png?branch=master)](https://travis-ci.org/hakimel/reveal.js)
 
 A framework for easily creating beautiful presentations using HTML. [Check out the live demo](http://lab.hakim.se/reveal-js/).
