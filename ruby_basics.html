@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introducing Ruby</title>
+
+		<meta name="description" content="Introducing Ruby">
+		<meta name="author" content="ICT4g">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h3>a bit of</h3>
+					<h1>Ruby</h1>
+					<h3>the language you are gonna love</h3>
+					<br>
+					<p>
+						<small>by <a href="http://ict4g.org">ICT4g</a> / <a href="http://twitter.com/ict4g_fbk">@ict4g_fbk</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h1>the console</h1>
+					<p>
+						just type <code>irb</code> in your command shell
+						<br>
+						you should see something like
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							irb(main):001:0>
+						</code></pre>
+						<code>irb</code> is the Interactive Ruby Shell
+					</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<section>
+					<h1>numbers</h1>
+					<pre><code>
+irb(main):001:0> 4+3
+=> 7
+irb(main):002:0> 4+5
+=> 9
+irb(main):003:0> 4-5
+=> -1
+irb(main):004:0> 42/6
+=> 7
+irb(main):005:0> 6*7
+=> 42
+					</code></pre>
+					Ruby recognizes numbers and mathematic symbols. 
+				</section>
+
+				<section>
+					<section>
+						<h1>strings</h1>
+						to make a <em>string</em> just enclose the text in quotes
+						<pre><code>
+irb(main):002:0> "Maputo"
+=> "Maputo"
+						</code></pre>
+					</section>
+					<section>
+						<h2>game of strings</h2>
+						let's try to <code>reverse</code> it
+						<div class="fragment roll-in">
+							<pre><code>
+irb(main):003:0> "Maputo".reverse
+=> "otupaM"
+						</code></pre></div>
+						<p class="fragment">how long is Maputo?</p>
+						<div class="fragment roll-in"><pre><code>
+irb(main):004:0> "Maputo".length
+=> 6
+						</code></pre></div>
+						<p class="fragment">let's repeat it</p>
+						<div class="fragment roll-in"><pre><code>
+irb(main):005:0> "Maputo" * 5
+=> "MaputoMaputoMaputoMaputoMaputo"
+						</code></pre></div>
+						<p class="fragment">or SHOUT it out loud</p>
+						<div class="fragment roll-in"><pre><code>
+irb(main):006:0> "Maputo".upcase
+=> "MAPUTO"
+						</code></pre></div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>methods</h1>
+						<code>reverse</code> and <code>*</code> are <em>methods</em>!<br>
+						The correct term is <b>messages</b>
+						<pre><code>
+irb(main):001:0> 4.send(:+, 3)
+=> 7
+						</code></pre>	
+						<small>here we <code>send</code> the message <code>:+</code> with parameter <code>3</code> to the object <code>4</code></small>
+					</section>
+					<section>
+						<h2>wroooong methods</h2>
+						<pre><code>
+irb(main):006:0> 42.reverse
+NoMethodError: undefined method `reverse' for 42:Fixnum
+						</code></pre>
+						Ruby is telling us there is no method <code>reverse</code> for numbers.
+						<p class="fragment">but we can do something like this</p>
+						<div class="fragment roll-in">
+							<pre><code>
+irb(main):007:0> 42.to_s.reverse
+=> "24"
+							</code></pre>
+						</div>
+						<p class="fragment">or this</p>
+						<div class="fragment roll-in">
+							<pre><code>
+irb(main):008:0> 42.to_s.reverse.to_i
+=> 24
+							</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>arrays</h1>
+						What are arrays?! They are lists. <br>
+						Type in a pair of brackets: <code>[]</code>
+						<pre><code>
+irb(main):010:0> [12, 78, 27]
+=> [12, 78, 27]
+						</code></pre>
+						Lists store things <b>in order</b>.
+					</section>	
+					<section>
+						<h2>have fun with arrays</h2>
+						<pre><code>
+irb(main):011:0> [12, 78, 27].max
+=> 78
+irb(main):015:0> [12, 78, 27].last
+=> 27
+irb(main):016:0> [12, 78, 27].reverse
+=> [27, 78, 12]
+irb(main):017:0> [12, 78, 27].sort
+=> [12, 27, 78]
+						</code></pre>
+					</section>
+					<section>
+						<h2>arrays and strings</h2>
+						a <em>string</em> can be seen as an array of <code>chars</code>
+						<pre><code>
+>> "Maputo".chars.to_a
+=> ["M", "a", "p", "u", "t", "o"]
+>> "Maputo".chars.to_a.reverse
+=> ["o", "t", "u", "p", "a", "M"]
+>> "Maputo".chars.to_a.reverse.join
+=> "otupaM"
+>> "Maputo".reverse
+=> "otupaM"
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>variables</h1>
+						<em>Variables</em> save a thing and give it a name. <br>
+						We use the equals sign to do this.
+						<pre><code>
+>> poker_cards = [20, 5, 1, 100, 8, 13, 0.5, 40, 2, 3, 0]
+=> [20, 5, 1, 100, 8, 13, 0.5, 40, 2, 3, 0]
+						</code></pre>
+						<p class="fragment">We can call methods on variables (i.e. send them <em>messages</em>)</p>
+						<div class="fragment roll-in">					
+							<pre><code>
+>> poker_cards.sort!
+=> [0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100]
+							</code></pre>
+						</div>
+					</section>
+					<section>
+						<h2>what is that <code>!</code>?</h2>
+						The exclamation at the end means that the method <code>sort!</code> changes what the variable contains for good.<br>
+						So, after <code>poker_cards.sort!</code>:
+						<pre><code>
+>> poker_cards
+=> [0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100]
+						</code></pre>
+						<strong>this is only a convention!</strong>
+					</section>
+					<section>
+						<h2>there is also the <code>?</code></h2>
+						<pre><code>
+>> poker_cards.include? 42
+=> false
+>> poker_cards.include? 13
+=> true
+>> poker_cards.include? "∞"
+=> false
+						</code></pre>
+						<strong>this is a convention too!</strong>
+					</section>
+				</section>
+
+				<!-- Hash 1 -->
+				<section>
+					<section>
+						<h1>hash</h1>
+						a.k.a. dictionary, <code>HashTable</code>, <code>HashMap</code>, ...
+						<p>a new hash of our favourite Moçambican food</p>
+						<pre><code>
+>> food = {}
+=> {}
+						</code></pre>
+						a hash is a set of <code>key => value</code> pairs, <em>unordered</em>
+						<pre><code>
+>> food["Chamussas"] = :very_good
+=> :very_good
+>> food
+=> {"Chamussas"=>:very_good}
+						</code></pre>
+					</section>
+					<section>
+						<h1>what's that <code>:</code>?</h1>
+						When you place a colon in front of a simple word, you get a <em>symbol</em>. Symbols are cheaper than strings (in terms of computer memory.) If you use a word over and over in your program, use a symbol. Rather than having thousands of copies of that word in memory, the computer will store the symbol only once.
+					</section>
+				</section>
+
+				<!-- Hash 2 -->
+				<section>
+					<h2>let's add a few</h2>
+					<pre><code>
+>> food["Ratazana"] = :not_so_good
+=> :not_so_good
+>> food["Camarão alinho"] = :very_good
+=> :very_good
+>> food["Chacuti"] = :dont_know
+=> :dont_know
+>> food["Galinha à Cafreal"] = :good
+=> :good
+>> food["Camarão Tigre Grelhado"] = :excellent
+=> :excellent
+					</code></pre>
+					and see how many
+					<pre><code>
+>> food
+=> {"Chamussas"=>:very_good, "Ratazana"=>:not_so_good, "Camarão alinho"=>:very_good, "Chacuti"=>:dont_know, "Galinha à Cafreal"=>:good, "Camarão Tigre Grelhado"=>:excellent}
+>> food.length
+=> 6
+					</code></pre>
+				</section>
+
+				<!-- Hash 3 -->
+				<section>
+					<section>
+						<h2>fine dining in Maputo?</h2>
+						just count our ratings
+						<pre><code>
+>> ratings = Hash.new(0)
+=> {}
+						</code></pre>
+						<p class="fragment">fill it</p>
+						<div class="fragment roll-in"><pre><code>
+>> food.values.each { |rate| ratings[rate] += 1 }
+=> [:very_good, :not_so_good, :very_good, :dont_know, :good, :excellent]
+						</code></pre></div>
+						<p class="fragment">see it</p>
+						<div class="fragment roll-in"><pre><code>
+>> ratings
+=> {:very_good=>2, :not_so_good=>1, :dont_know=>1, :good=>1, :excellent=>1}
+						</code></pre></div>
+					</section>
+					<section>
+						<h2>what's that <code>{|| ...}</code>?</h2>
+						It's a <em>block</em>, my friend. <br>
+						that's how it works
+						<pre><code>
+>> food.values.each { |rate| ratings[rate] += 1 }
+						</code></pre>
+						<div style="text-align: left">
+							<ul>
+								<li><code>|rate|</code> is the <em>block variable</em></li>
+								<li><code>ratings[rate] += 1</code> is the <em>block code</em></li>
+							</ul>
+							<p style="margin-top: .5em">
+								each value of <code>food</code> is put into the <em>block variable</em>
+								and the <em>block code</em> is executed.
+							</p>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>BY Hakim El Hattab / hakim.se</h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
