@@ -383,6 +383,48 @@ x is not empty
 					</section>
 				</section>
 				<!-- the end -->
+
+				<!-- method def -->
+				<section>
+					<section>
+						<h1>methods and classes</h1>
+					</section>
+					<section>	
+						<h2>method definitions</h2>
+						<pre><code>
+>> def palindrome?(string)
+>> 	string == string.reverse
+>> end
+>> palindrome? "level"
+=> true
+						</code></pre>
+						in Ruby functions have an implicit <em>return</em>, 
+						meaning they <em>return</em> the last statement evaluated <br>
+						but dont'worry, the <code>return</code> statement exists too
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>about a class</h1>
+						we define a new class like this
+						<pre><code>
+>> class Word
+>> 	def palindrome?(string)
+>> 		string == string.reverse
+>> 	end
+>> end
+=> nil
+						</code></pre>
+						and we use it
+						<pre><code>
+>> w = Word.new
+=> #&lt;Word:0x007fb8759a97e8&gt;
+>> w.palindrome? "level"
+=> true
+						</code></pre>
+						It’s odd to create a new class just to create a method that takes a string as an argument
+					</section>
+				</section>
 				<section>
 					<h1>THE END</h1>
 					<p>this presentation is widely inspired by <a href="http://tryruby.org">tryruby.org</a></p>
