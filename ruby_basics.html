@@ -77,7 +77,7 @@ irb(main):004:0> 42/6
 irb(main):005:0> 6*7
 => 42
 					</code></pre>
-					Ruby recognizes numbers and mathematic symbols. 
+					Ruby recognizes numbers and mathematic symbols.
 				</section>
 
 				<section>
@@ -123,7 +123,7 @@ irb(main):006:0> "Maputo".upcase
 						<pre><code>
 irb(main):001:0> 4.send(:+, 3)
 => 7
-						</code></pre>	
+						</code></pre>
 						<small>here we <code>send</code> the message <code>:+</code> with parameter <code>3</code> to the object <code>4</code></small>
 					</section>
 					<section>
@@ -160,7 +160,7 @@ irb(main):010:0> [12, 78, 27]
 => [12, 78, 27]
 						</code></pre>
 						Lists store things <b>in order</b>.
-					</section>	
+					</section>
 					<section>
 						<h2>have fun with arrays</h2>
 						<pre><code>
@@ -200,7 +200,7 @@ irb(main):017:0> [12, 78, 27].sort
 => [20, 5, 1, 100, 8, 13, 0.5, 40, 2, 3, 0]
 						</code></pre>
 						<p class="fragment">We can call methods on variables (i.e. send them <em>messages</em>)</p>
-						<div class="fragment roll-in">					
+						<div class="fragment roll-in">
 							<pre><code>
 >> poker_cards.sort!
 => [0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100]
@@ -389,7 +389,7 @@ x is not empty
 					<section>
 						<h1>methods and classes</h1>
 					</section>
-					<section>	
+					<section>
 						<h2>method definitions</h2>
 						<pre><code>
 >> def palindrome?(string)
@@ -398,7 +398,7 @@ x is not empty
 >> palindrome? "level"
 => true
 						</code></pre>
-						in Ruby functions have an implicit <em>return</em>, 
+						in Ruby functions have an implicit <em>return</em>,
 						meaning they <em>return</em> the last statement evaluated <br>
 						but dont'worry, the <code>return</code> statement exists too
 					</section>
@@ -424,6 +424,118 @@ x is not empty
 						</code></pre>
 						It’s odd to create a new class just to create a method that takes a string as an argument
 					</section>
+				</section>
+				<section>
+					<section>
+						<h1>extending classes</h1>
+						we can define <code>Word</code> as a subclass of <code>String</code>
+						<pre><code>
+>> class Word &lt; String
+>> 	def palindrome?
+>> 		self == self.reverse
+>> 	end
+>> end
+=> nil
+						</code></pre>
+						<code>self</code> is similar to <code>this</code> in Java
+						<pre><code>
+>> w = Word.new("level")
+=> "level"
+>> w.palindrome?
+=> true
+						</code></pre>
+					</section>
+					<section>
+						<p>we obviously inherited all the methods of <code>String</code></p>
+						<pre><code>
+>> w.length
+=> 5
+						</code></pre>
+						and we can see the inheritance of our new class
+						<pre><code>
+>> w.class.superclass
+=> String
+>> w.class.superclass.superclass
+=> Object
+>> w.class.superclass.superclass.superclass
+=> BasicObject
+						</code></pre>
+					</section>
+					<section>
+						<h2>something very cool of Ruby</h2>
+						we don't need to extend <code>String</code> to add new methods to it
+						<pre><code>
+>> class String
+>>   def palindrome?
+>>     self == self.reverse
+>>     end
+>>   end
+=> nil
+>> "level".class
+=> String
+>> "level".palindrome?
+=> true
+						</code></pre>
+						this is called <em>opening a built-in class</em><br>
+						<p>And you should do it only if you have a <strong>REALLY</strong> good reason</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>let's create a User!</h2>
+						using an editor this time
+						<pre><code>
+class User
+  attr_accessor :name, :email
+
+  def initialize(attributes = {})
+    @name  = attributes[:name]
+    @email = attributes[:email]
+  end
+
+  def formatted_email
+    "#{@name} &lt;#{@email}&gt;"
+  end
+end
+						</code></pre>
+						Yeah... that's a lot of new stuff...
+					</section>
+					<section>
+						<h2>Getters and setters</h2>
+						<pre><code>
+attr_accessor :name, :email
+						</code></pre>
+						<p>automatically creates getters and setters for the attributes <code>:name</code> and <code>:email</code></p><br>
+						<p>so that we can call them like this:</p>
+						<pre><code>
+@name  = attributes[:name]
+@email = attributes[:email]
+						</code></pre>
+					</section>
+					<section>
+						<h2>initializers</h2>
+						<pre><code>
+def initialize(attributes = {})
+  @name  = attributes[:name]
+  @email = attributes[:email]
+end
+						</code></pre>
+						<p>is called everytime we call <code>User.new</code></p><br>
+						<p>More or less like Java constructors</p>
+					</section>
+					<section>
+						<h2>let's see it in action</h2>
+						<pre><code>
+>> u = User.new(name: 'Aaron', email: 'aaron@example.com')
+=> #&lt;User:0x00000000f42a68 @name="Aaron", @email="aaron@example.com"&gt;
+>> u.formatted_email
+=> "Aaron &lt;aaron@example.com&gt;"
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<h1>Now it's your turn!</h1>
+
 				</section>
 				<section>
 					<h1>THE END</h1>
