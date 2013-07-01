@@ -208,7 +208,7 @@ irb(main):017:0> [12, 78, 27].sort
 						</div>
 					</section>
 					<section>
-						<h2>what is that <code>!</code>?</h2>
+						<h2>what's that <code>!</code>?</h2>
 						The exclamation at the end means that the method <code>sort!</code> changes what the variable contains for good.<br>
 						So, after <code>poker_cards.sort!</code>:
 						<pre><code>
@@ -250,7 +250,7 @@ irb(main):017:0> [12, 78, 27].sort
 						</code></pre>
 					</section>
 					<section>
-						<h1>what's that <code>:</code>?</h1>
+						<h2>what's that <code>:</code>?</h2>
 						When you place a colon in front of a simple word, you get a <em>symbol</em>. Symbols are cheaper than strings (in terms of computer memory.) If you use a word over and over in your program, use a symbol. Rather than having thousands of copies of that word in memory, the computer will store the symbol only once.
 					</section>
 				</section>
@@ -283,17 +283,18 @@ irb(main):017:0> [12, 78, 27].sort
 				<section>
 					<section>
 						<h2>fine dining in Maputo?</h2>
-						just count our ratings
-						<pre><code>
+						have a look to our ratings
+						<p class="fragment">create a hash for storing the rates</p>
+						<div class="fragment roll-in"><pre><code>
 >> ratings = Hash.new(0)
 => {}
-						</code></pre>
-						<p class="fragment">fill it</p>
+						</code></pre></div>
+						<p class="fragment">and fill it with our ratings of food</p>
 						<div class="fragment roll-in"><pre><code>
 >> food.values.each { |rate| ratings[rate] += 1 }
 => [:very_good, :not_so_good, :very_good, :dont_know, :good, :excellent]
 						</code></pre></div>
-						<p class="fragment">see it</p>
+						<p class="fragment">here it is</p>
 						<div class="fragment roll-in"><pre><code>
 >> ratings
 => {:very_good=>2, :not_so_good=>1, :dont_know=>1, :good=>1, :excellent=>1}
@@ -301,7 +302,7 @@ irb(main):017:0> [12, 78, 27].sort
 					</section>
 					<section>
 						<h2>what's that <code>{|| ...}</code>?</h2>
-						It's a <em>block</em>, my friend. <br>
+						That piece of code is called a <em>block</em><br>
 						that's how it works
 						<pre><code>
 >> food.values.each { |rate| ratings[rate] += 1 }
@@ -317,11 +318,75 @@ irb(main):017:0> [12, 78, 27].sort
 							</p>
 						</div>
 					</section>
+					<section>
+						<h3>multi-line block</h3>
+						when you have a huge block <br>
+						you can write it using multiple lines
+						<pre><code>
+>> food.values.each do |rate|
+?> 	ratings[rate] += 1
+>> end
+=> [:very_good, :not_so_good, :very_good, :dont_know, :good, :excellent]
+>> ratings
+=> {:very_good=>2, :not_so_good=>1, :dont_know=>1, :good=>1, :excellent=>1}
+						</code></pre>
+						<em>do</em> and <em>end</em> work for <em>{...}</em>
+					</section>
 				</section>
 
+				<!-- Control flow -->
+				<section>
+					<section>
+						<h1>control flow</h1>
+						namely <code>if</code>, <code>else</code> stuff
+						<pre><code>
+>> s = "a string"
+>> if s.empty?
+>>   "The string is empty"
+>> else
+?>   "The string is nonempty"
+>> end
+=> "The string is nonempty"
+						</code></pre>
+						we can also use <code>unless</code>
+						<pre><code>
+>> x = "a variable"
+>> puts "x is not empty" if !x.empty?
+x is not empty
+=> nil
+>> puts "x is not empty" unless x.empty?
+x is not empty
+=> nil
+						</code></pre>
+					</section>
+					<section>
+						<h2>what's that <code>nil</code>?</h2>
+						<code>nil</code> is a special <em>object</em>, similar to the Java <strong><code>null</code></strong><br>
+						it is the only Ruby object that is <code>false</code> in a boolean context, apart from <code>false</code> itself
+						<pre><code>
+>> if nil
+>> 	true
+>> else
+?> 	false
+>> end
+=> false
+						</code></pre>
+						all other Ruby objects are <code>true</code>, even 0
+						<pre><code>
+>> if 0
+>> 	true
+>> else
+?> 	false
+>> end
+=> true
+						</code></pre>
+					</section>
+				</section>
+				<!-- the end -->
 				<section>
 					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<p>this presentation is widely inspired by <a href="http://tryruby.org">tryruby.org</a></p>
+					<p>check it out to repeat the lesson!</p>
 				</section>
 
 			</div>
