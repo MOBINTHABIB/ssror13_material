@@ -427,7 +427,7 @@ x is not empty
 				</section>
 				<section>
 					<section>
-						<h1>extending classes</h1>
+						<h2>extending classes</h2>
 						we can define <code>Word</code> as a subclass of <code>String</code>
 						<pre><code>
 >> class Word &lt; String
@@ -462,7 +462,7 @@ x is not empty
 						</code></pre>
 					</section>
 					<section>
-						<h2>something very cool of Ruby</h2>
+						<h2>something cool of Ruby</h2>
 						we don't need to extend <code>String</code> to add new methods to it
 						<pre><code>
 >> class String
@@ -501,6 +501,17 @@ end
 						Yeah... that's a lot of new stuff...
 					</section>
 					<section>
+						<h2>initializers</h2>
+						<pre><code>
+def initialize(attributes = {})
+  @name  = attributes[:name]
+  @email = attributes[:email]
+end
+						</code></pre>
+						<p>is called everytime we call <code>User.new</code></p><br>
+						<p>More or less like Java constructors</p>
+					</section>
+					<section>
 						<h2>Getters and setters</h2>
 						<pre><code>
 attr_accessor :name, :email
@@ -513,15 +524,23 @@ attr_accessor :name, :email
 						</code></pre>
 					</section>
 					<section>
-						<h2>initializers</h2>
+						<h2>What's that <code>@</code>?</h2>
+						<p><code>@name</code> means that <code>name</code> is an <em>instance variable</em></p>
 						<pre><code>
-def initialize(attributes = {})
-  @name  = attributes[:name]
-  @email = attributes[:email]
-end
+>> u
+=> #&lt;User:0x00000000f42a68 @name="Aaron", @email="aaron@example.com"&gt;
 						</code></pre>
-						<p>is called everytime we call <code>User.new</code></p><br>
-						<p>More or less like Java constructors</p>
+						<p class="fragment">each instance variable is dynamically appended to an object when it is first assigned</p>
+						<div style="width: 50%; float: left"><pre class="fragment roll-in"><code style="overflow:hidden">
+def address=new_address
+  @address = new_address
+end
+						</code></pre></div>
+						<div style="width: 50%; float: left"><pre class="fragment roll-in"><code style="overflow:hidden">
+def address
+  @address
+end
+						</code></pre></div>
 					</section>
 					<section>
 						<h2>let's see it in action</h2>
