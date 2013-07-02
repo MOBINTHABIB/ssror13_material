@@ -2,6 +2,10 @@
 
 All the slides of the Summer School of Ruby on Rails held in Maputo (Mozambique) from mid-July to mid-August 2013.
 
+## Lectures
+
+- Ruby Basics
+
 Below the original Readme of reveal.js
 
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.png?branch=master)](https://travis-ci.org/hakimel/reveal.js)
@@ -511,7 +515,7 @@ The multiplex plugin needs the following 3 things to operate:
 More details:
 
 #### Master presentation
-Served from a static file server accessible (preferably) only to the presenter. This need only be on your (the presenter's) computer. (It's safer to run the master presentation from your own computer, so if the venue's Internet goes down it doesn't stop the show.) An example would be to execute the following commands in the directory of your master presentation: 
+Served from a static file server accessible (preferably) only to the presenter. This need only be on your (the presenter's) computer. (It's safer to run the master presentation from your own computer, so if the venue's Internet goes down it doesn't stop the show.) An example would be to execute the following commands in the directory of your master presentation:
 
 1. ```npm install node-static```
 2. ```static```
@@ -582,7 +586,7 @@ You are very welcome to point your presentations at the Socket.io server running
 
 ##### socket.io server as file static server
 
-The socket.io server can play the role of static file server for your client presentation, as in the example at [http://revealjs.jit.su](http://revealjs.jit.su). (Open [http://revealjs.jit.su](http://revealjs.jit.su) in two browsers. Navigate through the slides on one, and the other will update to match.) 
+The socket.io server can play the role of static file server for your client presentation, as in the example at [http://revealjs.jit.su](http://revealjs.jit.su). (Open [http://revealjs.jit.su](http://revealjs.jit.su) in two browsers. Navigate through the slides on one, and the other will update to match.)
 
 Example configuration:
 ```javascript
@@ -651,17 +655,17 @@ Some reveal.js features, like external markdown, require that presentations run 
 
 2. Install [Grunt](http://gruntjs.com/getting-started#installing-the-cli)
 
-4. Clone the reveal.js repository  
+4. Clone the reveal.js repository
 ```
 $ git clone git@github.com:hakimel/reveal.js.git
 ```
 
-5. Install dependencies  
+5. Install dependencies
 ```
 $ npm install
 ```
 
-6. Serve the presentation and monitor source files for changes  
+6. Serve the presentation and monitor source files for changes
 ```
 $ grunt serve
 ```

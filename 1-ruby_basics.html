@@ -384,6 +384,47 @@ x is not empty
 				</section>
 				<!-- the end -->
 
+                <!-- each, map, inject -->
+                <section>
+                    <section>
+                        <h1><code>each</code>, <code>map</code> and <code>inject</code></h1>
+                        (your best friends when working on enumberables)
+                    </section>
+                    <section>
+                        <h2><code>each</code></h2>
+                        Execute the block on all the elements of <code>self</code>
+                        <pre><code contenteditable>
+>> (1..5).each do |element|
+?>    puts element * 10
+>> end
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2><code>map</code></h2>
+                        invokes the given block once for each element of <code>self</code> and creates a new array containing the values returned by the block
+                        <pre><code contenteditable>
+>> (1..5).map do |element|
+?>   element * 2
+>> end
+=> [2, 4, 6, 8, 10]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2><code>inject</code></h2>
+                        combines all elements of <code>self</code> by applying a binary operation, specified by a block or a symbol that names a method or operator
+                        <pre><code contenteditable>
+>> ['cat','bear','sheep','ratazana'].inject do |memo,word|
+?>   word.length > memo.length ? word : memo
+>> end
+=> "ratazana"
+                        </code></pre>
+                        <pre><code contenteditable>
+>> [6, 4, 3, 3, 22].inject(1) { |accumulator,n| accumulator *= n }
+=> 4752
+                        </code></pre>
+                    </section>
+                </section>
+
 				<!-- method def -->
 				<section>
 					<section>
@@ -405,7 +446,7 @@ x is not empty
 				</section>
 				<section>
 					<section>
-						<h1>about a class</h1>
+						<h1>classes</h1>
 						we define a new class like this
 						<pre><code>
 >> class Word
@@ -524,7 +565,7 @@ attr_accessor :name, :email
 						</code></pre>
 					</section>
 					<section>
-						<h2>What's that <code>@</code>?</h2>
+						<h2>what's that <code>@</code>?</h2>
 						<p><code>@name</code> means that <code>name</code> is an <em>instance variable</em></p>
 						<pre><code>
 >> u
@@ -542,6 +583,20 @@ def address
 end
 						</code></pre></div>
 					</section>
+                    <section>
+                        <h2>and what's that <code>#{...}</code>?</h2>
+                        <p><code>#{}</code> is called <em>interpolation</em> and it allows you to embed (the string representation of) a variable in a string</p>
+                        <pre><code>
+>> a = 15;
+?> "I have #{a} cats"
+=> "I have 15 cats"
+>> array = [15,7,4,'ratazana'];
+?>   "this is an array: #{array}"
+=> "this is an array: [15, 7, 4, \"ratazana\"]"
+>> "The time now is #{Time.now}"
+=> ...
+                        </code></pre>
+                    </section>
 					<section>
 						<h2>let's see it in action</h2>
 						<pre><code>
@@ -551,15 +606,63 @@ end
 => "Aaron &lt;aaron@example.com&gt;"
 						</code></pre>
 					</section>
+                    <section>
+                        <h2>one more thing: class methods vs instance methods</h2>
+                        <div class="fragment roll-in" style="width: 50%; float: left">
+                            instance method
+                            <pre><code style="overflow:hidden">
+def activate!
+  @active = true
+end
+#=======
+>> u.activate!
+=> true
+                            </code></pre>
+                        </div>
+                        <div class="fragment roll-in" style="width: 50%; float: left">
+                            class method
+                            <pre><code style="overflow:hidden">
+def self.default_user
+  User.new(
+    name: 'Estenio',
+    email: 'estenio@example.com'
+  )
+end
+#=======
+>> User.default_user
+=> #&lt;User:0x00000000f5b888 @name="Estenio", @email="estenio@example.com"&gt;
+                            </code></pre>
+                        </div>
+                    </section>
 				</section>
 				<section>
-					<h1>Now it's your turn!</h1>
-
+					<section>
+                        <h1>Now it's your turn!</h1>
+                    </section>
+                    <section>
+                        <p><strong>1.</strong> Write a function that generates an array containing a random number of random numbers</p>
+                        <br>
+                        <p><strong>2.</strong> Add the following instance method to the <code>String</code> class:</p>
+                        <code>"aaabc".to_histogram</code> prints
+                        <pre><code>
+a: XXX
+b: X
+c: X
+                        </code></pre>
+                        <br>
+                        <p><strong>3.</strong> </p>
+                    </section>
 				</section>
+                <section>
+                    <h1>Documentation</h1>
+                    <p>All you need to know</p><br>
+                    <p><a href="http://ruby-doc.org/core-1.9.3/">http://ruby-doc.org/core-1.9.3/</a></p>
+                </section>
 				<section>
 					<h1>THE END</h1>
 					<p>this presentation is widely inspired by <a href="http://tryruby.org">tryruby.org</a></p>
 					<p>check it out to repeat the lesson!</p>
+                    <p>you can also try <a href="http://iwanttolearnruby.com/">http://iwanttolearnruby.com/</a></p>
 				</section>
 
 			</div>
