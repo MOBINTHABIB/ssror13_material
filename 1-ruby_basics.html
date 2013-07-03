@@ -226,6 +226,8 @@ irb(main):017:0> [12, 78, 27].sort
 => true
 >> poker_cards.include? "∞"
 => false
+>> poker_cards.empty?
+=> false
 						</code></pre>
 						<strong>this is a convention too!</strong>
 					</section>
@@ -395,8 +397,10 @@ x is not empty
                         Execute the block on all the elements of <code>self</code>
                         <pre><code contenteditable>
 >> (1..5).each do |element|
-?>    puts element * 10
+?> 	print element * 10
+>>	print " "
 >> end
+10 20 30 40 50
                         </code></pre>
                     </section>
                     <section>
@@ -413,7 +417,7 @@ x is not empty
                         <h2><code>inject</code></h2>
                         combines all elements of <code>self</code> by applying a binary operation, specified by a block or a symbol that names a method or operator
                         <pre><code contenteditable>
->> ['cat','bear','sheep','ratazana'].inject do |memo,word|
+>> ['cat','bear','ratazana','sheep'].inject do |memo,word|
 ?>   word.length > memo.length ? word : memo
 >> end
 => "ratazana"
