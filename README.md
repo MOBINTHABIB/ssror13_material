@@ -2,6 +2,8 @@
 
 All the slides of the Summer School of Ruby on Rails held in Maputo (Mozambique) from mid-July to mid-August 2013.
 
+Most of the slides are broadly inspired by great guides and tutorials, like [tryruby.org](http://tryruby.org) and [railstutorial.org](http://railstutorial.org).
+
 ## Lectures
 
 - Ruby Basics
