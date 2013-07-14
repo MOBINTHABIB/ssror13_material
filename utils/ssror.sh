@@ -11,15 +11,17 @@ sudo sh <<SCRIPT
 	apt-get -y upgrade
 	apt-get -y install curl git-core ia32-libs ia32-libs-multiarch nodejs nodejs-dev heroku-toolbelt chromium-browser
 
-	echo 'Installing RVM'
-	echo '=============='
-	curl -L https://get.rvm.io | bash -s stable
-	echo '[[ -s "~/.rvm/scripts/rvm" ]] && source "~/ror-student/.rvm/scripts/rvm"' >> ~/.bashrc
-
-	echo 'Installing Ruby 1.9.3'
-	echo '====================='
-	rvm install 1.9.3
 SCRIPT
+
+echo 'Installing RVM'
+echo '=============='
+curl -L https://get.rvm.io | bash -s stable
+echo '[[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm"' >> ~/.bashrc
+source ~/.rvm/scripts/rvm
+
+echo 'Installing Ruby 1.9.3'
+echo '====================='
+rvm install 1.9.3
 
 echo 'Installing Rails'
 echo '================'
