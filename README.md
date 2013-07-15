@@ -8,6 +8,15 @@ All you want to know about the summer school is in the slides.
 
 Some of the slides are broadly inspired by great guides and tutorials, like [tryruby.org](http://tryruby.org) and [railstutorial.org](http://railstutorial.org).
 
+### Day 1
+
+* Introduction to the MLL's Summer School of Ruby on Rails
+* Introduction to Web applications and Ruby on Rails
+
+### Day 2
+
+* _coming soon_
+
 _This list will be updated as the course proceeds_
 
 <!-- - Ruby Basics -->
